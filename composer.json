@@ -12,11 +12,14 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.89",
+        "larastan/larastan": "^3.8",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
+        "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^11.5.3"
     },
     "autoload": {
@@ -47,6 +50,48 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "test:unit": [
+            "@php artisan config:clear --ansi",
+            "vendor/bin/phpunit --testsuite=Unit"
+        ],
+        "test:feature": [
+            "@php artisan config:clear --ansi",
+            "vendor/bin/phpunit --testsuite=Feature"
+        ],
+        "test:coverage": [
+            "@php artisan config:clear --ansi",
+            "vendor/bin/phpunit --coverage-html coverage-html --coverage-text"
+        ],
+        "analyse": [
+            "vendor/bin/phpstan analyse --memory-limit=2G"
+        ],
+        "phpstan": [
+            "@analyse"
+        ],
+        "format": [
+            "vendor/bin/pint"
+        ],
+        "format:check": [
+            "vendor/bin/pint --test"
+        ],
+        "cs:fix": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "cs:check": [
+            "vendor/bin/php-cs-fixer fix --dry-run --diff"
+        ],
+        "quality": [
+            "@format:check",
+            "@analyse",
+            "@test"
+        ],
+        "ci": [
+            "@format:check",
+            "@analyse",
+            "@test:unit",
+            "@test:feature",
+            "composer audit"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

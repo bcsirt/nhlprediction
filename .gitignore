@@ -91,6 +91,14 @@ desktop.ini
 /coverage
 /htmlcov
 /.phpunit.cache
+/coverage-html
+coverage-*.xml
+
+# Code quality tools
+.php-cs-fixer.cache
+.phpstan.cache
+.phpstan/
+/phpstan.neon.dist
 
 # Temporary files
 *.tmp

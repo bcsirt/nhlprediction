@@ -1,0 +1,57 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+        - config
+        - database
+        - routes
+
+    # Level (0-9): Start at 5 and gradually increase
+    level: 5
+
+    # Ignore errors in generated files
+    excludePaths:
+        - app/Console/Kernel.php
+        - app/Exceptions/Handler.php
+        - app/Http/Middleware
+        - bootstrap
+        - storage
+        - vendor
+        - node_modules
+        - public
+        - resources
+
+    # Ignore specific errors
+    ignoreErrors:
+        # Ignore errors about missing return types in migrations
+        - '#Method .+Migration::(up|down)\(\) has no return type specified#'
+
+        # Ignore errors about mixed types in factories
+        - '#has no return type specified#'
+        - '#no value type specified in iterable type array#'
+
+    # Custom rules
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+
+    # Report unknown classes
+    reportUnmatchedIgnoredErrors: false
+
+    # Treat PHP Doc types as certain
+    treatPhpDocTypesAsCertain: true
+
+    # Laravel specific
+    universalObjectCratesClasses:
+        - Illuminate\Http\Request
+        - Illuminate\Support\Collection
+
+    # Custom error formatters
+    errorFormat: table
+
+    # Parallel processing
+    parallel:
+        jobSize: 20
+        maximumNumberOfProcesses: 4
+        minimumNumberOfJobsPerProcess: 2
