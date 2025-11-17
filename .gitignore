@@ -1,0 +1,99 @@
+# Laravel
+*.log
+.DS_Store
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# Machine Learning Models
+/storage/app/ml_models/*.pkl
+/storage/app/ml_models/*.pth
+/storage/app/ml_models/*.h5
+/storage/app/ml_models/*.onnx
+/ml_models/models/*.pkl
+/ml_models/models/*.pth
+/ml_models/models/*.h5
+
+# Données temporaires
+/storage/app/exports/*
+!/storage/app/exports/.gitkeep
+/storage/app/backtest_results/*
+!/storage/app/backtest_results/.gitkeep
+/storage/app/uploads/*
+!/storage/app/uploads/.gitkeep
+
+# Logs spécifiques
+/storage/logs/value-bets.log
+/storage/logs/analytics.log
+/storage/logs/performance.log
+/storage/logs/audit.log
+/storage/logs/webhooks.log
+/storage/logs/ml-training.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv
+*.egg-info/
+.pytest_cache/
+.coverage
+.ipynb_checkpoints/
+
+# Jupyter Notebooks
+/ml_models/notebooks/.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+/docker/*/Dockerfile.local
+
+# Secrets
+*.pem
+*.key
+*.cert
+/config/secrets.php
+
+# Test coverage
+/coverage
+/htmlcov
+/.phpunit.cache
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
