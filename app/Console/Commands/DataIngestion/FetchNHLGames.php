@@ -43,7 +43,8 @@ class FetchNHLGames extends Command
                 return self::SUCCESS;
             }
 
-            $this->info("✅ {$count = count($games)} match(s) trouvé(s)\n");
+            $count = count($games);
+            $this->info("✅ {$count} match(s) trouvé(s)\n");
 
             // Afficher les matchs dans un tableau
             $tableData = [];

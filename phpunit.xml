@@ -23,12 +23,25 @@
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
         <env name="CACHE_STORE" value="array"/>
-        <env name="DB_DATABASE" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>
+
+        <!-- NHL API Configuration for Tests -->
+        <env name="NHL_API_BASE_URL" value="https://api-web.nhle.com/v1"/>
+        <env name="NHL_API_TIMEOUT" value="5"/>
+        <env name="NHL_API_RETRY_TIMES" value="3"/>
+        <env name="NHL_API_RETRY_SLEEP" value="100"/>
+
+        <!-- Claude AI Configuration for Tests -->
+        <env name="ANTHROPIC_API_KEY" value="test-api-key"/>
+        <env name="CLAUDE_DEFAULT_MODEL" value="claude-3-5-haiku-20241022"/>
+        <env name="CLAUDE_CACHE_ENABLED" value="false"/>
     </php>
 </phpunit>
