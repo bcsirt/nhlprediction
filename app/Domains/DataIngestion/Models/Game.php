@@ -99,6 +99,7 @@ class Game extends Model
      */
     public function homeTeamStats(): ?GameStats
     {
+        /** @var GameStats|null */
         return $this->gameStats()
             ->where('team_id', $this->home_team_id)
             ->where('is_home', true)
@@ -110,6 +111,7 @@ class Game extends Model
      */
     public function awayTeamStats(): ?GameStats
     {
+        /** @var GameStats|null */
         return $this->gameStats()
             ->where('team_id', $this->away_team_id)
             ->where('is_home', false)

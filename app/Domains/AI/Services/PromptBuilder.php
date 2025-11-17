@@ -15,10 +15,15 @@ class PromptBuilder
     public function buildGameAnalysisPrompt(Game $game): string
     {
         // Charger les relations nécessaires
-        $game->load(['homeTeam', 'awayTeam', 'homeTeamStats', 'awayTeamStats']);
+        $game->load(['homeTeam', 'awayTeam']);
 
-        $homeTeam = $game->homeTeam->name;
-        $awayTeam = $game->awayTeam->name;
+        /** @var \App\Domains\DataIngestion\Models\Team $homeTeamModel */
+        $homeTeamModel = $game->homeTeam;
+        /** @var \App\Domains\DataIngestion\Models\Team $awayTeamModel */
+        $awayTeamModel = $game->awayTeam;
+
+        $homeTeam = $homeTeamModel->name;
+        $awayTeam = $awayTeamModel->name;
         $gameDate = $game->game_date->format('d/m/Y H:i');
 
         return <<<PROMPT
@@ -29,10 +34,10 @@ Analyse le match NHL suivant et fournis une analyse détaillée :
 **Lieu**: {$game->venue}
 
 **Statistiques {$homeTeam} (Domicile)**:
-{$this->formatTeamStats($game->homeTeamStats)}
+{$this->formatTeamStats($game->homeTeamStats())}
 
 **Statistiques {$awayTeam} (Extérieur)**:
-{$this->formatTeamStats($game->awayTeamStats)}
+{$this->formatTeamStats($game->awayTeamStats())}
 
 Fournis une analyse complète incluant :
 

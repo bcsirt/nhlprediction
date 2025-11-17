@@ -41,8 +41,8 @@ return new class extends Migration
             $table->integer('time_on_ice_seconds')->default(0); // En secondes
             $table->decimal('time_on_ice_per_game', 6, 2)->nullable(); // Minutes par match
             $table->decimal('even_strength_toi', 6, 2)->nullable();
-            $table->decimal('power_play_toi', 6, 2')->nullable();
-            $table->decimal('short_handed_toi', 6, 2')->nullable();
+            $table->decimal('power_play_toi', 6, 2)->nullable();
+            $table->decimal('short_handed_toi', 6, 2)->nullable();
 
             // Advanced Stats
             $table->integer('blocked_shots')->default(0);

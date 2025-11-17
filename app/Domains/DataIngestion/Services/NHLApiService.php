@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Log;
 class NHLApiService
 {
     private string $baseUrl;
-    private string $statsBaseUrl;
     private int $timeout;
     private int $retryTimes;
     private int $retrySleep;
@@ -24,7 +23,6 @@ class NHLApiService
     public function __construct()
     {
         $this->baseUrl = config('nhl.api.base_url');
-        $this->statsBaseUrl = config('nhl.api.stats_url');
         $this->timeout = config('nhl.api.timeout', 30);
         $this->retryTimes = config('nhl.api.retry_times', 3);
         $this->retrySleep = config('nhl.api.retry_sleep', 1000);

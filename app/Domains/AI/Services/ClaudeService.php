@@ -129,7 +129,7 @@ class ClaudeService
             $error = $response->json('error.message', 'Erreur inconnue');
             $type = $response->json('error.type', 'unknown');
 
-            throw new RequestException($response, "Claude API Error ({$type}): {$error}");
+            throw new RequestException($response);
         }
 
         return ClaudeResponse::fromApiResponse($response->json());

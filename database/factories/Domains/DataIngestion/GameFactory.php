@@ -37,7 +37,7 @@ class GameFactory extends Factory
             'status' => GameStatus::SCHEDULED->value,
             'overtime' => false,
             'shootout' => false,
-            'venue' => fn(array $attributes) => Team::find($attributes['home_team_id'])?->venue_name ?? 'Arena',
+            'venue' => fn(array $attributes) => Team::find($attributes['home_team_id'])->venue ?? 'Arena',
         ];
     }
 
@@ -126,7 +126,7 @@ class GameFactory extends Factory
     public function playoffs(): static
     {
         return $this->state(fn(array $attributes) => [
-            'game_type' => GameType::PLAYOFFS->value,
+            'game_type' => GameType::PLAYOFF->value,
         ]);
     }
 
@@ -148,7 +148,7 @@ class GameFactory extends Factory
         return $this->state(fn(array $attributes) => [
             'home_team_id' => $homeTeam->id,
             'away_team_id' => $awayTeam->id,
-            'venue' => $homeTeam->venue_name,
+            'venue' => $homeTeam->venue,
         ]);
     }
 

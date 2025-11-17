@@ -91,6 +91,7 @@ class Team extends Model
      */
     public function statsForSeason(string $seasonId): ?TeamStats
     {
+        /** @var TeamStats|null */
         return $this->stats()
             ->whereHas('season', fn($q) => $q->where('season_id', $seasonId))
             ->where('split_type', 'overall')

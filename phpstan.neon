@@ -13,15 +13,15 @@ parameters:
 
     # Ignore errors in generated files
     excludePaths:
-        - app/Console/Kernel.php
-        - app/Exceptions/Handler.php
-        - app/Http/Middleware
+        - app/Console/Kernel.php (?)
+        - app/Exceptions/Handler.php (?)
+        - app/Http/Middleware (?)
         - bootstrap
         - storage
         - vendor
-        - node_modules
-        - public
-        - resources
+        - node_modules (?)
+        - public (?)
+        - resources (?)
 
     # Ignore specific errors
     ignoreErrors:
@@ -31,10 +31,6 @@ parameters:
         # Ignore errors about mixed types in factories
         - '#has no return type specified#'
         - '#no value type specified in iterable type array#'
-
-    # Custom rules
-    checkMissingIterableValueType: false
-    checkGenericClassInNonGenericObjectType: false
 
     # Report unknown classes
     reportUnmatchedIgnoredErrors: false
